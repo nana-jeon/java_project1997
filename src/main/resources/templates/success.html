@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org">
+
+<head th:replace="~{base :: head}"></head>
+
+<body style="background:#f7f5ef;">
+
+    <!-- Navbar -->
+    <div th:replace="~{base :: navbar}"></div>
+
+    <!-- Header -->
+    <div th:replace="~{base :: header(text='Booked Success')}" ></div>
+
+
+    <!-- Success Section -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+
+                <div class="success-card p-5">
+
+                    <div class="text-center mb-4">
+                        <div class="success-icon mb-3">✔</div>
+                        <h2 class="fw-bold">Booking Confirmed!</h2>
+                        <p class="text-muted">Thank you! Your booking has been successfully submitted.</p>
+                    </div>
+
+                    <div class="details-box">
+
+                        <div class="detail-row">
+                            <span class="detail-label">Name</span>
+                            <span class="detail-value" th:text="${booked.name}"></span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="detail-label">Phone Number</span>
+                            <span class="detail-value" th:text="${booked.phoneNumber}"></span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="detail-label">Email</span>
+                            <span class="detail-value" th:text="${booked.email}"></span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="detail-label">Date</span>
+                            <span class="detail-value" th:text="${booked.date}"></span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="detail-label">Time</span>
+                            <span class="detail-value" th:text="${booked.time}"></span>
+                        </div>
+
+                        <div class="detail-row">
+                            <span class="detail-label">Person(s)</span>
+                            <span class="detail-value" th:text="${booked.person}"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="/" class="btn btn-primary px-4 py-2 rounded-pill fw-semibold shadow-sm">
+                            Back to Home
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <div th:replace="~{base :: footer}"></div>
+
+    <!-- Scripts -->
+    <div th:replace="~{base :: script}"></div>
+
+
+<style>
+    .success-card {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        transition: 0.3s ease;
+    }
+    .success-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+    }
+
+    .success-icon {
+        width: 75px;
+        height: 75px;
+        background: #d4ffe6;
+        color: #0fa958;
+        font-size: 36px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+        animation: pop 0.45s ease-out;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.7); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .details-box {
+        background: #fafafa;
+        border-radius: 14px;
+        padding: 20px 25px;
+    }
+
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 1.05rem;
+    }
+    .detail-label {
+        font-weight: bold;
+        color: #555;
+    }
+    .detail-value {
+        color: #222;
+    }
+
+    .detail-row:last-child {
+        border-bottom: none;
+    }
+</style>
+
+</body>
+</html>
